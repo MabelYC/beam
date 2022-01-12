@@ -388,7 +388,7 @@ class BeamModulePlugin implements Plugin<Project> {
 
     // Automatically use the official release version if we are performing a release
     // otherwise append '-SNAPSHOT'
-    project.version = '2.34.0.4'
+    project.version = '2.34.0.5'
 
     if (isLinkedin(project)) {
       project.ext.mavenGroupId = 'com.linkedin.beam'
@@ -1737,6 +1737,7 @@ class BeamModulePlugin implements Plugin<Project> {
 
         if (runner?.equalsIgnoreCase('spark')) {
           testRuntime it.project(path: ":runners:spark:2", configuration: 'testRuntime')
+          testRuntime it.project(path: ":runners:spark:3", configuration: 'testRuntime')
           testRuntime project.library.java.spark_core
           testRuntime project.library.java.spark_streaming
 
